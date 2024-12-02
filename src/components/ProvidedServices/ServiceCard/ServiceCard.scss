@@ -1,0 +1,29 @@
+.service-card {
+    padding: 26px 70px 26px 30px;
+    box-shadow: 0px 8px 25px 0px #0000001A;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    &_icon {
+        width: 30px;
+        height: 30px;
+    }
+    &_title {
+        font-family: "Buenos Aires Trial";
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25.2px;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .service-card {
+        &_title {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}

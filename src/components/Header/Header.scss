@@ -1,0 +1,84 @@
+@import "../../styles/colors";
+.header {
+    background-color: $purple-100;
+    padding: 36px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+        display: flex;
+        gap: 500px;
+        .logo {
+            height: 45px;
+            width: 205px;
+        }
+        .nav-list {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            gap: 1rem;
+            .nav-link {
+                text-decoration: none;
+                color: $white;
+                font-family: "Buenos Aires Trial"; 
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 19.2px;
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
+            .nav-link:hover {
+                transform: scale(1.1);
+            }
+            .btn {
+                border: 1px solid $white;
+                border-radius: 8px;
+                padding: 14px 24px;
+            }
+        }
+        .hamburger {
+            display: none;
+        }
+    }
+   
+}
+
+@media screen and (max-width: 1330px) {
+    .header {
+        .content {
+            gap: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .header {
+        .content {
+            gap: 150px;
+        }
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .header {
+        display: block;
+        padding: 36px 20px;
+    }
+    .header .content {
+        display: flex;
+        justify-content: space-between;
+        gap: unset;
+    }
+    .header .content .logo {
+        width: 120px;
+        height: 26px;
+    }
+    .header .content .nav-list {
+        display: none;
+    }
+    .header .content .hamburger {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
+}

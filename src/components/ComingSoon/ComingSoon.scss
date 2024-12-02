@@ -1,0 +1,32 @@
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    .coming-soon-content {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        h1 {
+            font-size: 2.5rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+          }
+          
+          p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+          }
+    }
+
+   
+      
+}

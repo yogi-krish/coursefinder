@@ -1,0 +1,214 @@
+
+@import "../../styles/colors";
+
+%font-buenos-aires {
+    font-family: "Buenos Aires Trial";
+    font-weight: 600;
+    line-height: 25.2px;
+}
+
+
+%text-style {
+    color: $white;
+    font-family: "Buenos Aires Trial";
+    text-align: center;
+}
+
+
+.sub-header {
+    position: relative;
+    background-color: $white;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    padding-bottom: 119px;
+
+    .branch-details {
+        display: flex;
+        justify-content: center;
+        padding-top: 67px;
+
+        &_text1, &_text2 {
+            @extend %font-buenos-aires;
+            font-size: 18px;
+            color: $white;
+        }
+
+        &_text1 {
+            opacity: 50%;
+        }
+
+        &_text2::before {
+            content: "●";
+            opacity: 50%;
+            padding: 0 10px;
+        }
+    }
+
+    h1 {
+        @extend %text-style;
+        font-weight: 600;
+        font-size: 42px;
+        margin: 1rem 0 0 0;
+    }
+    
+    .city {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        .box {
+            width: 160px !important;
+            height: 23px !important;
+            background-color: $purple-80;
+            position: absolute;
+            bottom: 0;
+            left: 45%;
+            z-index: -1;
+        }
+    }
+
+    p {
+        @extend %text-style;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 25.6px;
+        margin-top: 2rem;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        .btn {
+            @extend %font-buenos-aires;
+            font-size: 16px;
+            line-height: 19.2px;
+            padding: 14px 25px;
+            border-radius: 8px;
+            border: none;
+            color: $white;
+            background: linear-gradient(263.28deg, #FF6A56 1.1%, #FDAF4D 141.83%);
+            box-shadow: 0px 8px 30px 0px #0A021733;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+        .btn2 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .icon {
+                height: 48px;
+                width: 48px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+    
+            .txt {
+                @extend %text-style;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19.2px;
+                cursor: pointer;
+            }
+        }
+        
+    }
+    .star1 {
+        position: absolute;
+        top: 130px;
+        left: 20%;
+    }
+    .star2 {
+        position: absolute;
+        bottom: 21%;
+        right: 30%;
+    }
+    .star3 {
+        position: absolute;
+        top: 40px;
+        right: 230px;
+    }
+    .circle {
+        position: absolute;
+        top:20px;
+        left: 65%;
+    }
+    .dot1 {
+        position: absolute;
+        top:20px;
+        left: 35%;
+    }
+    .dot2 {
+        position: absolute;
+        bottom: 30%;
+        left: 25%;
+    }
+}
+
+.sub-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $purple-100;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    transform: scaleX(1.7);
+    z-index: -1;
+}
+
+
+@media screen and (max-width: 990px) {
+    .sub-header {
+        padding-bottom: 88px;
+    }
+    .sub-header .star1,
+    .sub-header .star2,
+    .sub-header .star3, .sub-header .dot1, .sub-header .dot2, .sub-header .circle {
+        display: none;
+    }
+
+    .sub-header .city .box {
+        display: none;
+    }
+
+    .sub-header .button-group {
+        flex-direction: column;
+        gap: 22px;
+        .btn {
+            margin-right: 0;
+        }
+    }
+
+    .sub-header::before {
+        transform: scaleX(2.5);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .sub-header {
+        .branch-details {
+            padding-top: 0;
+            &_text1, &_text2 {
+                font-size: 14px;
+            }
+        }
+        h1 {
+            font-size: 26px;
+            margin-top: 30px;
+        }
+
+        .city {
+            margin-top: 0;
+            font-size: 26px;
+        }
+        p {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+}
+
+}

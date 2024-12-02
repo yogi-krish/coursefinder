@@ -1,0 +1,122 @@
+
+%font-buenos-aires {
+    font-family: "Buenos Aires Trial";
+    font-weight: 600;
+}
+.services {
+    padding-top: 60px;
+    padding-bottom: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    &_title {
+        font-family: "Buenos Aires Trial";
+        font-size: 42px;
+        font-weight: 600;
+        // line-height: 50.4px;
+        text-align: center;
+    }
+    &_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 1020px;
+        margin: 0 auto;
+    }
+    .btn {
+        @extend %font-buenos-aires;
+        font-size: 16px;
+        line-height: 19.2px;
+        padding: 14px 25px;
+        border-radius: 8px;
+        border: none;
+        color: #FFFFFF;
+        background: linear-gradient(263.28deg, #FF6A56 1.1%, #FDAF4D 141.83%);
+        box-shadow: 0px 8px 30px 0px #0A021733;
+        margin-right: 30px;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+    .consultation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 84px;
+        margin-top: 40px;
+        &_details {
+
+            .list {
+                padding-left: 0;
+            }
+            .list_item {
+                background-image: url("../../assets/png/Tickmark.png");
+                background-repeat: no-repeat;
+                list-style: none;
+                padding: 9px 0 9px 50px;
+                display: flex;
+                align-items: flex-start;
+                margin-left: -20px;
+                font-family: "Buenos Aires Trial";
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+        h3 {
+            @extend %font-buenos-aires;
+            font-size: 26px;
+            line-height: 31.2px;
+            text-align: left;
+
+        }
+        p {
+            font-family: "Buenos Aires Trial";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25.6px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+        }
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .services {
+        padding: 60px 20px 80px 20px;
+        &_title {
+            font-size: 26px;
+        }
+        &_container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .consultation {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            &_image {
+                width: 331px;
+                height: 298px;
+            }
+            &_details {
+
+                .list {
+
+                }
+                .list_item {
+                    margin-left: 0;
+                }
+            }
+            h3 {    
+                font-size: 26px;
+                text-align: center;
+            }
+            p {
+                text-align: center;
+                font-size: 16px;
+                font-weight: 350;
+            }
+        }
+    }
+}

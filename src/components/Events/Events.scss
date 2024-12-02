@@ -1,0 +1,182 @@
+@import "../../styles/colors";
+
+.events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    &_title {
+        font-family: "Buenos Aires Trial";
+        font-size: 42px;
+        font-weight: 600;
+        text-align: center;
+    }
+    &_box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 39px;
+        .event1 {
+            border-radius: 10px;
+            box-shadow: 0px 6px 50px 0px #0000001A;
+            max-width: 570px;
+            &_image {
+
+            }
+            &_content {
+                display: flex;
+                flex-direction: column;
+                padding: 15px 20px 54px 30px;
+                gap: 1rem;
+                &_time {
+                    font-family: "Buenos Aires Trial";
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 30px;
+                    text-align: left;
+                    color: #226CF5;
+                }
+                &_title {
+                    font-family: "Buenos Aires Trial";
+                    font-size: 22px;
+                    font-weight: 400;
+                    line-height: 33px;
+                    text-align: left;
+                    color: #0E1B2C;
+                }
+                &_desc {
+                    font-family: "Buenos Aires Trial";
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-align: left;
+                    color: #64647A;
+                }
+            }
+        }
+        .event23 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-width: 570px;
+            .event {
+                box-shadow: 0px 6px 50px 0px #0000001A;
+                background-color: $white;
+                display: flex;
+                flex-direction: row;
+                border-radius: 10px;
+                &_image {
+
+                }
+                &_content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    padding: 30px;
+                    &_time {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 30px;
+                        text-align: left;
+                        color: #226CF5;
+                    }
+                    &_title {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 22px;
+                        font-weight: 400;
+                        line-height: 33px;
+                        text-align: left;
+                        color: #0E1B2C;
+                    }
+                    &_desc {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 16px;
+                        font-weight: 400;
+                        text-align: left;
+                        color: #64647A;
+                    }
+                }
+            }
+            .event3 {
+
+            }
+        }
+    }
+    &_mobile {
+        display: none;
+    }
+}
+
+.register-btn{
+    color: #FF7361;
+    font-family: "Buenos Aires Trial";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    background-color: $white;
+    border: 0;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 990px) {
+    
+    .events {
+        padding: 0 20px;
+        &_title {
+            font-size: 26px;
+            margin: 0;
+        }
+        &_box {
+            display: none;
+        }
+        &_mobile {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            width: 100%;
+            padding: 40px 0;
+            .event1 {
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0px 6px 50px 0px #0000001A;
+                margin : 0 20px;
+                &_image {
+                    width: 300px;
+                    height: 200px;
+                    border-radius: 10px 10px 0 0;
+                }
+                &_content {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 15px 20px 54px 30px;
+                    gap: 1rem;
+                    &_time {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 30px;
+                        text-align: left;
+                        color: #226CF5;
+                    }
+                    &_title {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 18px;
+                        font-weight: 600;
+                        line-height: 33px;
+                        text-align: left;
+                        color: #0E1B2C;
+                    }
+                    &_desc {
+                        font-family: "Buenos Aires Trial";
+                        font-size: 14px;
+                        font-weight: 400;
+                        text-align: left;
+                        color: #64647A;
+                    }
+                }
+            }
+        }
+    }
+}
