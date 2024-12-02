@@ -1,0 +1,41 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-top: 2rem;
+}
+
+.sidebar li {
+    margin: 20px 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-family: "Buenos Aires Trial";
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19.2px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+// .nav-link:hover {
+//     transform: scale(1.1);
+// }

@@ -1,73 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
-import quoteIcon from  "../../assets/svg/quoteIcon.svg";
-
-
+import counsellingIcon from "../../assets/svg/counsellingIcon.svg";
+import preparationIcon from "../../assets/svg/preparationIcon.svg";
 import "./Carousel.scss";
 
-const testimonials = [
-  {
-    text: "Thank you, KC, for all the support you have provided right from shortlisting the university to the visa interview preparations. I really admire the attention and support of the KC Counsellors.",
-    name: "Mandar Suryawanshi",
-    university: "Northeastern University, USA",
-  },
-  {
-    text: "The team made the entire process very easy. Everyone is very helpful and cooperative throughout. I am thankful to KC Sadar Team for making my dream come true.",
-    name: "Aarohi Sighel",
-    university: "University of South Australia, Australia",
-  },
-  {
-    text: "Helped with counseling and making the right decision...great staff..would definitely recommend it to anyone planning to go abroad for studies..",
-    name: "Susan Mendonca",
-    university: "Conestoga College, Canada",
-  },
-  {
-    text: "Amazing experience and guidance...",
-    name: "John Doe",
-    university: "Harvard University, USA",
-  },
+const steps = [
+  { id: 1, title: "Counselling", description: "Plan your Academic and Career Goals", icon: counsellingIcon },
+  { id: 2, title: "Test Preparation", description: "Appear for Standardized Tests", icon: preparationIcon },
+  { id: 3, title: "Course, Country and University selection", description: "Select the country, program and university", icon: preparationIcon },
+  { id: 4, title: "Application & Admission", description: "Apply to your preferred institutions", icon: preparationIcon },
+  { id: 5, title: "Education loan & Financials", description: "Apply for education loan and Arrange requisite financials", icon: preparationIcon },
+  { id: 6, title: "Visa Processing", description: "Pay your deposit, accept offer and Apply for Visa", icon: preparationIcon },
+  { id: 7, title: "Additional Support", description: "Attend Pre-Departure Session, Avail Forex", icon: preparationIcon },
 ];
 
 const Carousel = () => {
+  const sliderRef = useRef<any>(null);
+
+  const goNext = () => sliderRef.current.slickNext();
+  const goPrev = () => sliderRef.current.slickPrev();
+
   const settings = {
-    centerMode: true,
-    centerPadding: "20px",
-    slidesToShow: 3,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: "0px",
-        },
-      },
-    ],
+    slidesToShow: 2,
+    slidesToScroll: 1,
   };
 
   return (
-    <div className="slider-container">
-      <h2>Our Students Love Us</h2>
-      <Slider {...settings}>
-        {testimonials.map((item, index) => (
-            <div tabIndex={-1} style={{
-                width:"100%",
-                display: "inline-block"
-            }}>
-                <div key={index} className="card">
-            <div className="card_box1">
-                <img className="card_box1_image" src={quoteIcon} alt="quote"/>
-                <p className="card_box1_text">{item.text}</p>
+    <div className="dream">
+      <h2 className="dream_title">7 Easy Steps to Land in your Dream University</h2>
+
+
+      <div className="custom-buttons">
+        <button className="prev-btn" onClick={goPrev}>Prev</button>
+        <button className="next-btn" onClick={goNext}>Next</button>
+      </div>
+
+      <Slider {...settings} ref={sliderRef}>
+        {steps.map((step) => (
+          <div key={step.id} className="wrapper">
+            <div className="number">{step.id}</div>
+            <div className="dream_container_card">
+              <img className="dream_container_card_image" src={step.icon} alt="icon" />
+              <div className="dream_container_card_title">{step.title}</div>
+              <div className="dream_container_card_description">{step.description}</div>
             </div>
-            <div className="card_box2">
-                <p className="card_box2_name">{item.name}</p>
-                <p className="card_box2_university">{item.university}</p>
-            </div>
-            
           </div>
-            </div>
-          
         ))}
       </Slider>
     </div>

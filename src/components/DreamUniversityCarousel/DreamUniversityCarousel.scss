@@ -1,132 +1,123 @@
-.carousel-container {
-    text-align: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #ede7f6;
-    color: #333;
-  }
-  
-  h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  .carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .timeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .timeline-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@import "../../styles/colors";
+
+.dream {
+    background-color: $purple-30;
+    padding: 70px;
     position: relative;
-  }
-  
-  .circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .active .circle {
-    background-color: #6200ea;
-    color: #fff;
-  }
-  
-  .completed .circle {
-    background-color: #bbb;
-  }
-  
-  .line {
-    width: 100px;
-    height: 2px;
-    background-color: #ddd;
+    &_title {
+        font-family: "Buenos Aires Trial";
+        font-size: 42px;
+        font-weight: 600;
+        text-align: center;
+        padding-bottom: 120px;
+    }
+    &_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        .wrapper {
+            position: relative;
+            width: 480px;
+            transition: transform 0.5s ease-in-out;
+            .number {
+                position: absolute;
+                bottom: 112%;
+                left: 39%;
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .number1 {
+                background-color: #ffffff;
+                color: black;
+            }
+            .number2 {
+                border: 1px solid #64647A;
+                color: #64647A;
+                opacity: 30%;
+            }
+            .line {
+                border: 1px dashed #64647a;
+                opacity: 30%;
+                position: absolute;
+                bottom: 125%;
+                left: 54%;
+                width: 405px;
+            }
+            .dream_container_card {
+                box-shadow: 0px 6px 50px 0px #0000001a;
+                background-color: $white;
+                padding: 50px 45px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                width: 440px;
+                box-sizing: border-box;
+                // height: 260px;
+                position: relative;
+                opacity: 1;
+                transform: translateX(0);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+                &_image {
+                    width: 105px;
+                    height: 60px;
+                }
+                &_title {
+                    font-family: "Buenos Aires Trial";
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-align: center;
+                    color: #0e1b2c;
+                }
+                &_description {
+                    font-family: "Buenos Aires Trial";
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-align: center;
+                    color: #0e1b2c;
+                }
+            }
+        }
+        // &_card {
+        // }
+    }
+    &_btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        padding-top: 40px;
+        &_btn {
+            color: #ff7361;
+            font-family: "Buenos Aires Trial";
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+.triangle {
     position: absolute;
-    top: 20px;
+    bottom: 100%;
     left: 50%;
-    z-index: -1;
-  }
-  
-  .cards {
-    display: flex;
-    position: relative;
-    width: 400px;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .card {
-    flex: 1 0 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
+}
+.gradient {
     position: absolute;
     top: 0;
-    left: 0;
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  
-  .active {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 2;
-  }
-  
-  .next {
-    opacity: 0.5;
-    transform: translateX(110%);
-    z-index: 1;
-  }
-  
-  .inactive {
-    opacity: 0;
-  }
-  
-  .card-icon {
-    font-size: 50px;
-    margin-bottom: 10px;
-  }
-  
-  .carousel-controls {
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #6200ea;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 14px;
-  }
-  
-  button:disabled {
-    background-color: #bbb;
-    cursor: not-allowed;
-  }
-  
+    right: 0;
+    height: -webkit-fill-available;
+}

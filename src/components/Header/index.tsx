@@ -1,10 +1,11 @@
+import React, {forwardRef} from "react";
 import { Link } from "react-router-dom";
 import kcLogo from "../../assets/svg/kc_logo.svg";
 import hamburger from "../../assets/svg/hamburger.svg";
 import { Navigations } from "../../navigations";
 import "./Header.scss";
 
-const navigations = [
+export const navigations = [
     {
         id: 1,
         title: "Study Destination",
@@ -32,7 +33,8 @@ const navigations = [
     },
 ];
 
-const Header = () => {
+const Header = ({ onHamClick }: any) => {
+
     return (
         <div className="header">
             <div className="content">
@@ -48,7 +50,7 @@ const Header = () => {
                         ))}
                     </ul>
                 </nav>
-                <img className="hamburger" src={hamburger} alt="-"/>
+                <img onClick={onHamClick} className="hamburger" src={hamburger} alt="-"/>
             </div>
         </div>
     );
