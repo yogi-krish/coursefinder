@@ -3,6 +3,7 @@ import quoteIcon from "../../assets/svg/quoteIcon.svg";
 import nextIcon from "../../assets/png/rightArrow.png";
 import prevIcon from "../../assets/png/leftArrow.png";
 import "./TestimonialCarousel.scss";
+import { useRef } from "react";
 
 const testimonials = [
     {
@@ -27,21 +28,20 @@ const testimonials = [
     },
 ];
 
-
-function NextArrow(props:any) {
+function NextArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", marginBottom: "20px" }}
-        onClick={onClick}
-      >
-        <img style={{
-            marginBlock: "20px"
-        }} src={nextIcon} alt="next"/>
-      </div>
+        <div className={className} style={{ ...style, display: "block", marginBottom: "20px" }} onClick={onClick}>
+            <img
+                style={{
+                    marginBlock: "20px",
+                }}
+                src={nextIcon}
+                alt="next"
+            />
+        </div>
     );
-  }
+}
 
 // function NextArrow(props:any) {
 //     const { className, style, onClick } = props;
@@ -59,8 +59,8 @@ function NextArrow(props:any) {
 //     return (
 //       <div
 //         className={className}
-//         style={{ ...style, 
-//             display: "block", 
+//         style={{ ...style,
+//             display: "block",
 //             position: "relative"
 //         }}
 //         onClick={onClick}
@@ -70,38 +70,36 @@ function NextArrow(props:any) {
 //     );
 //   }
 
-  function PrevArrow(props:any) {
+function PrevArrow(props: any) {
     const { className, style, onClick } = props;
-    const position:any  = {
+    const position: any = {
         position: "absolute",
         top: "240px",
-        right: "2px"
-    }
+        right: "2px",
+    };
     return (
-      <div
-        className={className}
-        style={{ ...style, 
-            display: "block",
-            position: "relative"
-         }}
-        onClick={onClick}
-      >
-        <img style={{
-            position: "absolute",
-            top: "240px",
-            right:"10%",
-        }} src={prevIcon} alt="next"/>
-      </div>
+        <div className={className} style={{ ...style, display: "block", position: "relative" }} onClick={onClick}>
+            <img
+                style={{
+                    position: "absolute",
+                    top: "240px",
+                    right: "10%",
+                }}
+                src={prevIcon}
+                alt="next"
+            />
+        </div>
     );
-  }
+}
 
 const RDCarousel = () => {
+    const sliderRef = useRef<any>(null);
     const settings = {
         dots: true,
         centerMode: true,
         centerPadding: "10px",
         slidesToShow: 3,
-        nextArrow: <NextArrow/>,
+        nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         infinite: true,
         speed: 500,
@@ -116,23 +114,32 @@ const RDCarousel = () => {
         ],
     };
 
+    const goNext = () => sliderRef.current.slickNext();
+    const goPrev = () => sliderRef.current.slickPrev();
+
     return (
         <div className="carousel-container slider-container">
             <h2 className="carousel-container_title">Our Students Love Us</h2>
-            <Slider {...settings}>
-                {testimonials.map((item, index) => (
-                    <div>
-                        <div className="carousel-card">
-                            <div className="carousel-card_inner">
-                                <img className="carousel-card_inner_image" src={quoteIcon} />
-                                <p className="carousel-card_inner_text">{item.text}</p>
-                                <p className="carousel-card_inner_name">{item.name}</p>
-                                <p className="carousel-card_inner_university">{item.university}</p>
+            <div className="slider-wrapper">
+                <img className="prev-icon" src={prevIcon} onClick={goPrev}/>
+                <div className="slider-wrapper_main">
+                    <Slider ref={sliderRef} {...settings}>
+                        {testimonials.map((item, index) => (
+                            <div>
+                                <div className="carousel-card">
+                                    <div className="carousel-card_inner">
+                                        <img className="carousel-card_inner_image" src={quoteIcon} />
+                                        <p className="carousel-card_inner_text">{item.text}</p>
+                                        <p className="carousel-card_inner_name">{item.name}</p>
+                                        <p className="carousel-card_inner_university">{item.university}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                ))}
-            </Slider>
+                        ))}
+                    </Slider>
+                </div>
+                <img className="next-icon" src={nextIcon} onClick={goNext}/>
+            </div>
         </div>
     );
 };
